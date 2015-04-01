@@ -40,7 +40,7 @@ int main()
 	objHeight = objectHeight(dist, pixelHeight, sensorHeight, fLenEff, subHeight); //finds the estimated actual object height, prints
 	printf("ObjectHeight is: %f meters\n",objHeight);
 
-	objHeight = objectWidth(dist, pixelWidth, sensorWidth, fLenEff, subWidth); //finds the estimated actual object width, prints
+	objWidth = objectWidth(dist, pixelWidth, sensorWidth, fLenEff, subWidth); //finds the estimated actual object width, prints
 	printf("ObjectWidth is: %f meters\n",objWidth);
 
 }
@@ -112,11 +112,11 @@ double objectWidth(double dist, int pixelWidth, double sensorWidth, double fLenE
 	double focusAngle = ((2.0 * atan((sensorWidth / (2.0 * fLenEff)))) * (180.0 / M_PI));
 
 	double halfWidth = (2.0 * tan((focusAngle * (M_PI / 180.0))/2.0));
-
+	
 	double planeWidth = ((halfWidth * dist) / pixelWidth);
-
+	
 	double objWidth = (planeWidth * subWidth);
-
+	
 	return objWidth;
 
 }
