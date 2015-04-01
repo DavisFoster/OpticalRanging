@@ -63,6 +63,9 @@ double focalLengthComp(double dist, int method)
 			fLenCor = (-0.1668*dist + 50.075);
 			break;
 		case 1:
+			fLenCor = (21.315*(pow(dist,2.0))-(48.979*dist)+64.797);
+			break;
+		case 2:
 			fLenCor = (49.4115 - 1.98574*log(dist));
 			break;
 		default:
@@ -116,7 +119,7 @@ double objectWidth(double dist, int pixelWidth, double sensorWidth, double fLenE
 	double planeWidth = ((halfWidth * dist) / pixelWidth);
 	
 	double objWidth = (planeWidth * subWidth);
-	
+
 	return objWidth;
 
 }
