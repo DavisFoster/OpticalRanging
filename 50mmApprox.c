@@ -35,7 +35,7 @@ int main()
 	scanf("%lf[^\n]", &subWidth);
 	while ((ch =getchar()) != EOF && ch != '\n'); //input buffer clear
 
-	fLenEff = focalLengthComp(dist, 1); //defines the effective focal length, compensated for focal distance.
+	fLenEff = focalLengthComp(dist, 3); //defines the effective focal length, compensated for focal distance.
 
 	objHeight = objectHeight(dist, pixelHeight, sensorHeight, fLenEff, subHeight); //finds the estimated actual object height, prints
 	printf("ObjectHeight is: %f meters\n",objHeight);
@@ -68,6 +68,10 @@ double focalLengthComp(double dist, int method)
 		case 2:
 			fLenCor = (49.4115 - 1.98574*log(dist));
 			break;
+		case 3:
+			fLenCor = (2.004*(pow(dist,4.0))-(21.875*(pow(dist,3.0)))+(78.249*(pow(dist,2.0)))-(115.936 * dist) + 111.396);
+			break;
+	
 		default:
 			fLenCor = 50.0;	
 	}
