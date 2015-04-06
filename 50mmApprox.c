@@ -8,6 +8,7 @@ double focalLengthComp(double dist, int method);
 double objectHeight(double dist, int pixelHeight, double sensorHeight, double fLenEff, double subHeight);
 double objectWidth(double dist, int pixelWidth, double sensorWidth, double fLenEff, double subWidth);
 
+
 int main()
 {
 
@@ -42,6 +43,7 @@ int main()
 
 	objWidth = objectWidth(dist, pixelWidth, sensorWidth, fLenEff, subWidth); //finds the estimated actual object width, prints
 	printf("ObjectWidth is: %f meters\n",objWidth);
+
 
 }
 
@@ -88,11 +90,11 @@ double objectHeight(double dist, int pixelHeight, double sensorHeight, double fL
 
 	//printf("Effective Flen is: %f mm\n",fLenEff);
 
-	double focusAngle = ((2.0 * atan((sensorHeight / (2.0 * fLenEff)))) * (180.0 / M_PI));
+	double focusAngle = ((2.0 * atan((sensorHeight / (2.0 * fLenEff)))));
 
 	//printf("Angle is: %f\n",focusAngle);
 
-	double halfHeight = (2.0 * tan((focusAngle * (M_PI / 180.0))/2.0));
+	double halfHeight = (2.0 * tan((focusAngle)/2.0));
 
 	//printf("HalfHeight is: %f\n",halfHeight);
 
@@ -116,9 +118,9 @@ double objectWidth(double dist, int pixelWidth, double sensorWidth, double fLenE
 {
 
 
-	double focusAngle = ((2.0 * atan((sensorWidth / (2.0 * fLenEff)))) * (180.0 / M_PI));
+	double focusAngle = ((2.0 * atan((sensorWidth / (2.0 * fLenEff)))));
 
-	double halfWidth = (2.0 * tan((focusAngle * (M_PI / 180.0))/2.0));
+	double halfWidth = (2.0 * tan((focusAngle)/2.0));
 	
 	double planeWidth = ((halfWidth * dist) / pixelWidth);
 	
